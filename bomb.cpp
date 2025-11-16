@@ -1,11 +1,16 @@
 #include <iostream>
 #include <string>
-#include <unistd.h>
 #include <chrono>
 #include <thread>
 #include <cstdlib>
 
 using namespace std;
+
+#ifdef _WIN32
+    string clr = "cls";
+#elif __linux__
+    string clr = "clear";
+#endif
 
 void typeEffect(const string& text, int delayMs = 50) {
 	for (char c : text) {
@@ -15,29 +20,28 @@ void typeEffect(const string& text, int delayMs = 50) {
 }
 
 void codecorrect() {
-	system("clear");
+	system(clr.c_str());
 	typeEffect("\033[32mBomb armed!\n", 50);
 	this_thread::sleep_for(chrono::milliseconds(205));
-	typeEffect("To dearm type dearm: \n", 50);
-	string dearmChoice;
-	typeEffect(">", 50);
-	cin >> dearmChoice;
-	if (dearmChoice == "dearm") {
-		system("clear");
-		this_thread::sleep_for(chrono::milliseconds(100));
-		typeEffect("Bomb dearmed!\n");
-	} else {
-		codecorrect();
-	}
+	system(clr.c_str());
+    for (int countdown = 15; countdown > 0; countdown--) {
+        typeEffect("Bomb exploding in ");
+        typeEffect(to_string(countdown));
+        this_thread::sleep_for(chrono::milliseconds(900));
+        system(clr.c_str());
+    }
+    system(clr.c_str());
+    typeEffect("\033[0mBomb exploded!\n", 200);
+    this_thread::sleep_for(chrono::milliseconds(2000));
 }
 
 void codefalse() {
-	system("clear");
+	system(clr.c_str());
 	typeEffect("\033[31mFailed to arm bomb\n", 50);
 }
 
 void askcode() {
-	system("clear");
+	system(clr.c_str());
 	typeEffect("Bomb Version 0.0.1\n", 100);
 	cout << flush;
 	this_thread::sleep_for(chrono::milliseconds(1000));
