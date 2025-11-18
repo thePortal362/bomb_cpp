@@ -20,3 +20,4 @@
 | Task | Status |
 |------|--------|
 |Update ToDo-List|:wrench:|
+|Add higher sleep_for in line 25 & 39|:wrench:|
