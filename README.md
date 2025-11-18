@@ -16,6 +16,8 @@
     ./bomb
   #### Windows:
     bomb
+### 5. Provide Code.
+    734567
 ## ToDo:
 | Task | Status |
 |------|--------|
