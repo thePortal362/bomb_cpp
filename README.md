@@ -4,7 +4,7 @@
 > This Script simulates the behavior of an typical movie bomb with cool animations and colors.
 > Compatible with both Linux and Windows. (Not tested on MacOS)
 
-## Install
+## Install (Windows, Linux, MacOS)
 ### 1. Download the cpp file.
     git clone https://github.com/thePortal362/bomb_cpp
 ### 2. Change into cloned Directory:
